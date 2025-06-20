@@ -1,17 +1,34 @@
-h1{
-    color: blue;
-    font-size: 24px;
-    background: lightgray;
-    text-align: center;
-    display: block;
+
+
+.hidden {
+  display: none;
 }
 
-#newid{
-    color: red;
-    font-size: 20px;
-    background: yellow;
-    text-align: center;
-    display: block;
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.container{
+    height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.game{
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap : 10px;
+}
+.box{
+    height: 18vmin;
+    width: 18vmin;
 }
 body {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYcwICdCDvNTC-GkVZkuuOwCoAyffo4bGQ4A&s');
@@ -19,3 +36,61 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+button {
+  padding: 15px 30px;     /* Top/Bottom and Left/Right padding */
+  font-size: 18px;         /* Bigger text */
+  width: 200px;            /* Optional fixed width */
+  height: 60px;            /* Optional fixed height */
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  background: rgb(255, 255, 255);
+  text-align: center;  
+  padding: 18px;
+  border-radius: 10px;  
+  transition: text-shadow 0.3s ease;
+}
+
+h1:hover {
+  text-shadow:
+    0 0 5px #66ccff,
+    0 0 10px #66ccff,
+    0 0 20px #66ccff;
+}
+
+p {
+  color: red;
+  font-size: 20px;
+  background: lightblue;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  transition: text-shadow 0.3s ease;
+}
+
+p:hover {
+  text-shadow:
+    0 0 5px #66ccff,
+    0 0 10px #66ccff,
+    0 0 20px #66ccff;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  width: 200px;
+  height: 60px;
+  transition: text-shadow 0.3s ease;
+}
+
+button:hover {
+  text-shadow:
+    0 0 5px #66ccff,
+    0 0 10px #66ccff,
+    0 0 20px #66ccff;
+}
+
+
+
