@@ -12,6 +12,7 @@ let boxes = document.querySelectorAll('.box');
 
 let resetButton = document.querySelector('#reset');
 const resetGame = () => {
+    moves = 0;
     turnX = false;
     boxes.forEach(box => {
         box.innerText = "";
@@ -34,19 +35,19 @@ let winPatterns = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+let moves = 0;
 boxes.forEach(box => {
-    let moves = 1;
     box.addEventListener("click", () => {
     box.innerText = turnX ? "X" : "O";
     turnX = !turnX;
     box.disabled = true;
-    moves++;
     checkWin();
-    if (moves == 9) {
+    if (moves === 9) {
+        console.log("It's a draw!");
         showWinner("No one, it's a draw!");
         boxes.forEach(box => box.disabled = true);
-        console.log("Game Over");
     }
+    console.log(moves);
   });
 });
 const showWinner = (winner) => {
@@ -61,6 +62,7 @@ document.querySelector('#newbtn').addEventListener('click', () => {
   document.querySelector('#newbtn').classList.add('hidden');
 });
 const checkWin = () => {
+  moves++;
   for (let pattern of winPatterns) {
       let pos1 = boxes[pattern[0]].innerText;
       let pos2 = boxes[pattern[1]].innerText;

@@ -1,79 +1,100 @@
-
-
-
-
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 .center-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.container{
-    height: 70vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+
+.container {
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
-.game{
-    height: 60vmin;
-    width: 60vmin;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap : 10px;
-    
+
+.game {
+  height: 60vmin;
+  width: 60vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
-.box{
-    height: 18vmin;
-    width: 18vmin;
-    border-radius: 20%;
-    box-shadow: #edadad 0px 0px 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 8vmin;
-    background-color: rgba(240, 240, 240, 0.8);
-   color: #b0413e;
-   
+
+.box {
+  height: 15vmin;
+  width: 15vmin;
+  border-radius: 20%;
+  box-shadow: #edadad 0px 0px 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 6vmin;
+  background-color: rgba(240, 240, 240, 0.85);
+  color: #b0413e;
 }
+
 body {
-  /*background-color: rgb(240, 178, 178); */
   background-image: url('https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/43793431-0f4a-473b-b346-7c30df84af10.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 button {
-  padding: 15px 30px;     /* Top/Bottom and Left/Right padding */
-  font-size: 18px;         /* Bigger text */
-  width: 200px;            /* Optional fixed width */
-  height: 60px;            /* Optional fixed height */
+  padding: 15px 30px;
+  font-size: 18px;
+  width: 200px;
+  height: 60px;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f0f0f0;
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1);
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ffffff;
+  box-shadow: 0 0 15px white;
 }
 
 h1 {
   color: rgb(0, 0, 0);
   font-size: 24px;
-  background: rgb(255, 255, 255);
-  text-align: center;  
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
   padding: 18px;
-  border-radius: 10px;  
+  border-radius: 10px;
   transition: text-shadow 0.3s ease;
 }
 
 h1:hover {
   text-shadow:
-    0 0 5px #66ccff,
-    0 0 10px #66ccff,
-    0 0 20px #66ccff;
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ffffff;
 }
-#winmsg{
-    color: black;
-    font-size: 24px;
+
+#winmsg {
+  color: black;
+  font-size: 24px;
 }
+
 p {
   color: red;
   font-size: 20px;
-  background: lightblue;
+  background: rgba(173, 216, 230, 0.85); /* LightBlue with transparency */
   text-align: center;
   padding: 20px;
   border-radius: 10px;
@@ -82,39 +103,33 @@ p {
 
 p:hover {
   text-shadow:
-    0 0 5px #66ccff,
-    0 0 10px #66ccff,
-    0 0 20px #66ccff;
-}
-
-button {
-  padding: 15px 30px;
-  font-size: 18px;
-  width: 200px;
-  height: 60px;
-  transition: text-shadow 0.3s ease;
-}
-
-button:hover {
-  text-shadow:
-    0 0 5px #66ccff,
-    0 0 10px #66ccff,
-    0 0 20px #66ccff;
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ffffff;
 }
 
 .hidden {
   display: none;
 }
 
-#reset{
-    padding: 1rem;
-    font-size: 1.5rem;
-    background-color: #f0f0f0;
-    color: black;
-    border-radius: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+#reset {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #f0f0f0;
+  color: black;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
+#reset:hover {
+  transform: scale(1.1);
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ffffff;
+  box-shadow: 0 0 15px white;
+}
