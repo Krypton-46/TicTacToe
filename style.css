@@ -2,7 +2,10 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe Script', cursive;
 }
+
 .center-container {
   display: flex;
   flex-direction: column;
@@ -33,10 +36,17 @@ html, body {
   width: 15vmin;
   border-radius: 20%;
   box-shadow: #edadad 0px 0px 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 6vmin;
   background-color: rgba(240, 240, 240, 0.85);
   color: #b0413e;
+  transition: text-shadow 0.3s ease;
+}
+
+.box:hover {
+  text-shadow:
+    0 0 5px #f8f0ff,
+    0 0 10px #f8f0ff,
+    0 0 20px #f8f0ff;
 }
 
 body {
@@ -44,7 +54,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-attachment: fixed;
 }
 
 button {
@@ -63,13 +73,14 @@ button {
 button:hover {
   transform: scale(1.1);
   text-shadow:
-    0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 20px #ffffff;
-  box-shadow: 0 0 15px white;
+    0 0 5px #f8f0ff,
+    0 0 10px #f8f0ff,
+    0 0 20px #f8f0ff;
+  box-shadow: 0 0 15px #f8f0ff;
 }
 
-h1 {
+h1,
+#winmsg {
   color: rgb(0, 0, 0);
   font-size: 24px;
   background: rgba(255, 255, 255, 0.9);
@@ -79,22 +90,18 @@ h1 {
   transition: text-shadow 0.3s ease;
 }
 
-h1:hover {
+h1:hover,
+#winmsg:hover {
   text-shadow:
-    0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 20px #ffffff;
-}
-
-#winmsg {
-  color: black;
-  font-size: 24px;
+    0 0 5px #f8f0ff,
+    0 0 10px #f8f0ff,
+    0 0 20px #f8f0ff;
 }
 
 p {
   color: red;
   font-size: 20px;
-  background: rgba(173, 216, 230, 0.85); /* LightBlue with transparency */
+  background: rgba(173, 216, 230, 0.85);
   text-align: center;
   padding: 20px;
   border-radius: 10px;
@@ -103,9 +110,17 @@ p {
 
 p:hover {
   text-shadow:
-    0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 20px #ffffff;
+    0 0 5px #f8f0ff,
+    0 0 10px #f8f0ff,
+    0 0 20px #f8f0ff;
+}
+
+span:hover {
+  text-shadow:
+    0 0 5px #f8f0ff,
+    0 0 10px #f8f0ff,
+    0 0 20px #f8f0ff;
+  transition: text-shadow 0.3s ease;
 }
 
 .hidden {
@@ -128,8 +143,8 @@ p:hover {
 #reset:hover {
   transform: scale(1.1);
   text-shadow:
-    0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 20px #ffffff;
-  box-shadow: 0 0 15px white;
+    0 0 5px #f8f0ff,
+    0 0 10px #f8f0ff,
+    0 0 20px #f8f0ff;
+  box-shadow: 0 0 15px #f8f0ff;
 }
