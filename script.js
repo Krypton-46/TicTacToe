@@ -1,77 +1,62 @@
-let button = document.querySelector('button');
-button.addEventListener('click', () => {
-    let p = document.querySelector('p');
-    p.remove();
-    button.remove();
-    document.querySelector('.container').classList.remove('hidden');
-    document.querySelector('.game').classList.remove('hidden');
-    document.querySelector('#reset').classList.remove('hidden');
-});
-
-let boxes = document.querySelectorAll('.box');
-
+let boxes       = document.querySelectorAll('.box');
 let resetButton = document.querySelector('#reset');
-const resetGame = () => {
-    moves = 0;
-    turnX = false;
-    boxes.forEach(box => {
-        box.innerText = "";
-        box.disabled = false;
-    });
-    let msg = document.querySelector('#winmsg');
-    msg.classList.add('hidden');
-    turnX = true;
-};
-resetButton.addEventListener('click', resetGame);
 
-let turnX = true;
 let winPatterns = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+  [0,1,2],[3,4,5],[6,7,8],
+  [0,3,6],[1,4,7],[2,5,8],
+  [0,4,8],[2,4,6]
 ];
+
 let moves = 0;
-boxes.forEach(box => {
-    box.addEventListener("click", () => {
-    box.innerText = turnX ? "X" : "O";
-    turnX = !turnX;
-    box.disabled = true;
-    moves++;
-    checkWin();
-    if (moves === 9) {
-        console.log("It's a draw!");
-        showWinner("No one, it's a draw!");
-        boxes.forEach(box => box.disabled = true);
-    }
-    console.log(moves);
-  });
-});
+let turnX = true;
+let gameOver = false;               // NEW – flag to stop extra checks
+
 const showWinner = (winner) => {
-  let msg = document.querySelector('#winmsg');
-  msg.innerText = `Winner is ${winner}`;
-  msg.classList.remove('hidden');
+  document.querySelector('#winmsg').innerText = `Winner is ${winner}`;
+  document.querySelector('#winmsg').classList.remove('hidden');
   document.querySelector('#newbtn').classList.remove('hidden');
+  boxes.forEach(b => b.disabled = true);
+  gameOver = true;                  // mark the game as finished
 };
 
-document.querySelector('#newbtn').addEventListener('click', () => {
-  resetGame();
-  document.querySelector('#newbtn').classList.add('hidden');
-});
+/* return true if someone wins, otherwise false */
 const checkWin = () => {
   for (let pattern of winPatterns) {
-      let pos1 = boxes[pattern[0]].innerText;
-      let pos2 = boxes[pattern[1]].innerText;
-       let pos3 = boxes[pattern[2]].innerText;
-       if(pos1!==""&&pos2!==""&&pos3!=="") {
-        if (pos1 === pos2 && pos2 === pos3) {
-            showWinner(pos1);
-            boxes.forEach(box => box.disabled = true);
-        }
+    const [a,b,c] = pattern;
+    if (
+      boxes[a].innerText &&
+      boxes[a].innerText === boxes[b].innerText &&
+      boxes[b].innerText === boxes[c].innerText
+    ) {
+      showWinner(boxes[a].innerText);
+      return true;                  // tell caller a win happened
     }
   }
+  return false;
 };
+
+boxes.forEach(box => box.addEventListener('click', () => {
+  if (gameOver) return;             // safety‑net
+
+  box.innerText = turnX ? 'X' : 'O';
+  box.disabled  = true;
+  turnX = !turnX;
+  moves++;
+
+  if (checkWin()) return;           // **don’t run draw logic if win**
+
+  if (moves === 9) {                // only runs when there’s no winner
+    showWinner("No one, it's a draw!");
+  }
+}));
+
+const resetGame = () => {
+  moves = 0;
+  turnX = true;
+  gameOver = false;                 // reset the flag
+  boxes.forEach(b => { b.innerText = ''; b.disabled = false; });
+  document.querySelector('#winmsg').classList.add('hidden');
+  document.querySelector('#newbtn').classList.add('hidden');
+};
+resetButton.addEventListener('click', resetGame);
+document.querySelector('#newbtn').addEventListener('click', resetGame);
