@@ -41,6 +41,7 @@ boxes.forEach(box => {
     box.innerText = turnX ? "X" : "O";
     turnX = !turnX;
     box.disabled = true;
+    moves++;
     checkWin();
     if (moves === 9) {
         console.log("It's a draw!");
@@ -62,7 +63,6 @@ document.querySelector('#newbtn').addEventListener('click', () => {
   document.querySelector('#newbtn').classList.add('hidden');
 });
 const checkWin = () => {
-  moves++;
   for (let pattern of winPatterns) {
       let pos1 = boxes[pattern[0]].innerText;
       let pos2 = boxes[pattern[1]].innerText;
